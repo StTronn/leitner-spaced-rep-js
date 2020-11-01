@@ -1,0 +1,31 @@
+var _ = require("lodash");
+
+class Deck {
+  /*----properties---*/
+  day = 0;
+  cardsInday = 0;
+  dayIteration;
+  cards;
+  /*----properties---*/
+
+  constructor(cards, dayIteration = 1) {
+    this.cards = cards;
+    this.dayIteration = dayIteration;
+  }
+
+  //pick a card from deck
+  pick() {
+    //find all the buckets for this day and concat them into a single list
+    let dayWords = this.cards.filter(
+      ({ bucket }) => bucket == 0 || this.day % bucket == 0
+    );
+    this.cardsInday++;
+    if (this.cardsInday > this.dayIteration) {
+      this.cardsInday = 0;
+      this.day++;
+    }
+    return _.sample(dayWords);
+  }
+}
+
+module.exports = Deck;
