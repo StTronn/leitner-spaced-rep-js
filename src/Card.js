@@ -4,42 +4,81 @@
 
 const Deck = require("./Deck");
 const dummyCards = [
-  { front: "a", back: "alphabet", reviewCount: 0, status: "New", bucket: 0 },
-  { front: "b", back: "alphabet", reviewCount: 0, status: "New", bucket: 0 },
-  { front: "d", back: "alphabet", reviewCount: 0, status: "New", bucket: 0 },
+  {
+    front: "a",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.new,
+    bucket: 0,
+  },
+  {
+    front: "b",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.new,
+    bucket: 0,
+  },
+  {
+    front: "d",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.wrong,
+    bucket: 0,
+  },
 ];
 
 class Card {
   /*----properties---*/
   front;
   back;
-  status = "new"; //reviewing,learning,mastered
+  status = statEn.NEW; //reviewing,learning,mastered
   reviewCount = 0;
   bucket = 0;
+  //enum
+  statEn = {
+    NEW: "new",
+    MASTERED: "mastered",
+    REVIEW: "reviewing",
+    WRONG: "wrong",
+  };
   /*----properties---*/
 
-  constructor({ front, back }) {
+  constructor({ front, back, reviewCount, status, bucket }) {
     this.front = front;
     this.back = back;
+    if (reviewCount) this.reviewCount = reviewCount;
+    if (status) this.status = status;
+    if (bucket) this.bucket = bucket;
   }
 
   update(choice) {
-    //choice is either 1 or 0
+    //know this word
     if (choice) {
-      if (this.status == "new") {
+      //new
+      if (this.status == this.statEn.NEW) {
         this.bucket = 2;
-        this.status = "mastered";
-      } else if (this.status == "learning") {
-        this.status = "reviewing";
-      } else if (this.status == "reviewing" && this.reviewCount == 0)
-        this.reviewCount = 1;
-      else if (this.status == "reviewing" && this.reviewCount == 1) {
-        this.reviewCount = 0;
-        this.status = "mastered";
-        this.bucket = 2;
+        this.status = this.statEn.MASTERED;
       }
-    } else {
-      this.status = "learning";
+      // wrong
+      else if (this.status == this.statEn.WRONG) {
+        this.bucket = 0;
+        this.status = this.statEn.REVIEW;
+      }
+      // review
+      else if (this.status == this.statEn.REVIEW) {
+        //move to mastered if progress>1
+        if (this.reviewCount != 0) {
+          this.reviewCount = 0;
+          this.status = this.statEn.MASTERED;
+          this.bucket = 2;
+        }
+        //increase review progress
+        else this.reviewCount = 1;
+      }
+    }
+    //wrong ans
+    else {
+      this.status = this.statEn.WRONG;
       this.reviewCount = 0;
       this.bucket = 0;
     }
