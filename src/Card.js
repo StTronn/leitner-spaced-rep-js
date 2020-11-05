@@ -2,30 +2,13 @@
  * Implementation of leitner algo with modification
  */
 
+const statEn = {
+  NEW: "new",
+  MASTERED: "mastered",
+  REVIEW: "reviewing",
+  WRONG: "wrong",
+};
 const Deck = require("./Deck");
-const dummyCards = [
-  {
-    front: "a",
-    back: "alphabet",
-    reviewCount: 0,
-    status: statEn.new,
-    bucket: 0,
-  },
-  {
-    front: "b",
-    back: "alphabet",
-    reviewCount: 0,
-    status: statEn.new,
-    bucket: 0,
-  },
-  {
-    front: "d",
-    back: "alphabet",
-    reviewCount: 0,
-    status: statEn.wrong,
-    bucket: 0,
-  },
-];
 
 class Card {
   /*----properties---*/
@@ -90,6 +73,35 @@ const createCards = (cards) => {
   return cards.map((card) => new Card(card));
 };
 
+const createDeck = (cards) => {
+  return Deck(createCards(cards));
+};
+
+/* --- END CLASS --- */
+
+const dummyCards = [
+  {
+    front: "a",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.new,
+    bucket: 0,
+  },
+  {
+    front: "b",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.new,
+    bucket: 0,
+  },
+  {
+    front: "d",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.wrong,
+    bucket: 0,
+  },
+];
 const deck1 = new Deck(createCards(dummyCards));
 const card = deck1.pick();
 card.update(0);
