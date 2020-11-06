@@ -43,6 +43,6 @@ user has 2 choice for each word know this word (1) or wrong (0)
 
 **REVIEW word update-1 for the seconed time is MASTERED**
 
-**any word update-0 is wrong**
+**any word update-0 is WRONG**
 
 MASTERED has 1/4 less chance occuring than others
