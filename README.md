@@ -27,7 +27,7 @@ console.log(currCard);
 ```
 
 ## Rules 
-There are three status of a card can have 
+There are four status of a card can have 
 * NEW
 * MASTERED
 * REVIEW
