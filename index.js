@@ -1,6 +1,7 @@
 const Deck = require("./src/Deck");
-const { Card, createCards } = require("./src/Card");
+const { Card, createCards, statEn } = require("./src/Card");
 
 exports.Card = Card;
 exports.createCards = createCards;
-exports.Card = Deck;
+exports.Deck = Deck;
+exports.statEn = statEn;

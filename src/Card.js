@@ -108,3 +108,4 @@ card.update(0);
 
 exports.Card = Card;
 exports.createCards = createCards;
+exports.statEn = statEn;
