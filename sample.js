@@ -5,7 +5,7 @@ const dummyCards = [
     front: "a",
     back: "alphabet",
     reviewCount: 0,
-    status: statEn.new,
+    status: statEn.NEW,
     bucket: 0,
   },
 ];
