@@ -33,11 +33,16 @@ There are three status of a card can have
 * REVIEW
 * WRONG
 
-** NEW word update-1 is MASTERED **
-** WRONG word update-1 is  REVIEW **
-** REVIEW word update-1 for the first time is still REVIEW **
-** REVIEW word update-1 for the seconed time is MASTERED **
+user has 2 choice for each word know this word (1) or wrong (0)
 
-** any word update-0 is wrong **
+**NEW word update-1 is MASTERED**
+
+**WRONG word update-1 is  REVIEW**
+
+**REVIEW word update-1 for the first time is still REVIEW**
+
+**REVIEW word update-1 for the seconed time is MASTERED**
+
+**any word update-0 is wrong**
 
 MASTERED has 1/4 less chance occuring than others
