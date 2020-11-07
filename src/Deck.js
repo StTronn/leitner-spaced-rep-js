@@ -24,6 +24,7 @@ class Deck {
       this.cardsInday = 0;
       this.day++;
     }
+    if (dayWords.length == 0) return _.sample(this.cards);
     return _.sample(dayWords);
   }
 }
