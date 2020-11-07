@@ -1,7 +1,5 @@
 var _ = require("lodash");
 
-const statEn = require("./Card");
-
 class Deck {
   /*----properties---*/
   day = 0;
