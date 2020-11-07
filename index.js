@@ -1,5 +1,5 @@
-const Deck = require("./src/Deck");
-const { Card, createCards, statEn } = require("./src/Card");
+const Deck = require("./lib/Deck");
+const { Card, createCards, statEn } = require("./lib/Card");
 
 exports.Card = Card;
 exports.createCards = createCards;
