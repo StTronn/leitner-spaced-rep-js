@@ -77,35 +77,6 @@ const createDeck = (cards) => {
   return Deck(createCards(cards));
 };
 
-/* --- END CLASS --- */
-
-const dummyCards = [
-  {
-    front: "a",
-    back: "alphabet",
-    reviewCount: 0,
-    status: statEn.new,
-    bucket: 0,
-  },
-  {
-    front: "b",
-    back: "alphabet",
-    reviewCount: 0,
-    status: statEn.new,
-    bucket: 0,
-  },
-  {
-    front: "d",
-    back: "alphabet",
-    reviewCount: 0,
-    status: statEn.wrong,
-    bucket: 0,
-  },
-];
-const deck1 = new Deck(createCards(dummyCards));
-const card = deck1.pick();
-card.update(0);
-
 exports.Card = Card;
 exports.createCards = createCards;
 exports.statEn = statEn;

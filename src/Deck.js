@@ -5,11 +5,14 @@ class Deck {
   day = 0;
   cardsInday = 0;
   dayIteration;
-  cards;
+  cards = [];
   /*----properties---*/
 
-  constructor(cards, dayIteration = 1) {
-    this.cards = cards;
+  constructor(obj, dayIteration = 1) {
+    // obj must have a cards property
+    Object.keys(obj).map((e) => {
+      this[e] = obj[e];
+    });
     this.dayIteration = dayIteration;
   }
 
@@ -23,7 +26,7 @@ class Deck {
       ({ bucket }) => bucket == 0 || this.day % bucket == 0
     );
     this.cardsInday++;
-    if (this.cardsInday > this.dayIteration) {
+    if (this.cardsInday >= this.dayIteration) {
       this.cardsInday = 0;
       this.day++;
     }
@@ -36,6 +39,13 @@ class Deck {
    */
   countType(type) {
     return this.cards.filter(({ status }) => status == type).length;
+  }
+
+  /*
+   * @return Count all Card in word with given status
+   */
+  dump() {
+    return JSON.parse(JSON.stringify(this));
   }
 }
 
