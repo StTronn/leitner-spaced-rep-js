@@ -16,9 +16,16 @@ const dummyCards = [
     status: statEn.NEW,
     bucket: 0,
   },
+  {
+    front: "a",
+    back: "alphabet",
+    reviewCount: 0,
+    status: statEn.NEW,
+    bucket: 0,
+  },
 ];
 
-const deck = new Deck(createCards(dummyCards));
+const deck = new Deck({ cards: createCards(dummyCards) });
 const currCard = deck.pick();
 console.log(currCard);
 currCard.update(1); // 1 -> if user know the word, 0 otherwise
