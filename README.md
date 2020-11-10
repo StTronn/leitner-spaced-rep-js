@@ -3,6 +3,8 @@
 
 An implementation of modified leitner algorithm for flashcards
 
+##Install
+`npm i lt-spaced-repetition-js`
 
 ## Usage
 ```
