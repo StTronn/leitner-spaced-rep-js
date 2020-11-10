@@ -39,10 +39,10 @@ currCard.update(1); // 1 -> if user know the word, 0 otherwise
 
 ### Deck Methods
 ```
-    console.log(deck.dump()); //creates a dump obj of deck
+console.log(deck.dump()); //creates a dump obj of deck
 
-    //takes statEn enumeration returns count in deck
-    console.log(deck.countType(statEn.NEW)); 
+//takes statEn enumeration returns count in deck
+console.log(deck.countType(statEn.NEW)); 
 ```
 ### Options 
 
