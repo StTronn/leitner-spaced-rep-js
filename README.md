@@ -3,7 +3,8 @@
 
 An implementation of modified leitner algorithm for flashcards
 
-##Install
+## Install
+
 `npm i lt-spaced-repetition-js`
 
 ## Usage
@@ -43,7 +44,7 @@ console.log(currCard);
     //takes statEn enumeration returns count in deck
     console.log(deck.countType(statEn.NEW)); 
 ```
-## Options 
+### Options 
 
 You can specifiy `dayIteration` which is by default 1 to determine how many cards are shown before a day progresses.
 
