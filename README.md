@@ -25,12 +25,29 @@ const dummyCards = [
   },
 ];
 
-const deck = new Deck({ cards: createCards(dummyCards) });
+// object passed to constructor must inclued cards a list of Card
+const deck = new Deck({ id:1, cards: createCards(dummyCards) });
 const currCard = deck.pick();
 console.log(currCard);
 currCard.update(1); // 1 -> if user know the word, 0 otherwise
 console.log(currCard);
 
+```
+
+### Deck Methods
+```
+    console.log(deck.dump()); //creates a dump obj of deck
+
+    //takes statEn enumeration returns count in deck
+    console.log(deck.countType(statEn.NEW)); 
+```
+## Options 
+
+You can specifiy `dayIteration` which is by default 1 to determine how many cards are shown before a day progresses.
+
+```
+// 2 cards are shown on each day
+const deck = new Deck({ cards: createCards(dummyCards) },dayIteration=2);
 ```
 
 ## Rules 

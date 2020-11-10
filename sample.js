@@ -17,9 +17,11 @@ const dummyCards = [
   },
 ];
 
-const deck = new Deck({ cards: createCards(dummyCards) });
+const deck = new Deck({ id: 1, cards: createCards(dummyCards) });
 const currCard = deck.pick();
 console.log(currCard);
 currCard.update(1); // 1 -> if user know the word, 0 otherwise
 console.log(currCard);
+
 //console.log(deck.dump());
+//console.log(deck.countType(statEn.NEW));
