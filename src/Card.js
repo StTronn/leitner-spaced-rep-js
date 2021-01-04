@@ -26,12 +26,10 @@ class Card {
   };
   /*----properties---*/
 
-  constructor({ front, back, reviewCount, status, bucket }) {
-    this.front = front;
-    this.back = back;
-    if (reviewCount) this.reviewCount = reviewCount;
-    if (status) this.status = status;
-    if (bucket) this.bucket = bucket;
+  constructor(obj) {
+    Object.keys(obj).map((e) => {
+      this[e] = obj[e];
+    });
   }
 
   update(choice) {
