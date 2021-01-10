@@ -64,6 +64,16 @@ class Card {
       this.bucket = 0;
     }
   }
+
+  /*
+   * reset the card to default
+   * @return null
+   */
+  reset() {
+    this.status = statEn.NEW;
+    this.reviewCount = 0;
+    this.bucket = 0;
+  }
 }
 
 //factory method

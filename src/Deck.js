@@ -35,7 +35,7 @@ class Deck {
   }
 
   /*
-   * @return Count all Card in word with given status
+   * @return count of all Card in word with given status
    */
   countType(type) {
     return this.cards.filter(({ status }) => status == type).length;
@@ -46,6 +46,16 @@ class Deck {
    */
   dump() {
     return JSON.parse(JSON.stringify(this));
+  }
+
+  /* reset the deck
+   * @return null
+   */
+  reset() {
+    this.cards.forEach((card) => {
+      card.reset();
+    });
+    this.day = 0;
   }
 }
 
