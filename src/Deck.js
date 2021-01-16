@@ -6,11 +6,14 @@ class Deck {
   cardsInday = 0;
   dayIteration;
   cards = [];
+  TestRight = 0;
+  TestWrong = 0;
+  _testIndex = 0;
   /*----properties---*/
 
   constructor(obj, dayIteration = 1) {
     // obj must have a cards property
-    Object.keys(obj).map((e) => {
+    Object.keys(obj).forEach((e) => {
       this[e] = obj[e];
     });
     this.dayIteration = dayIteration;
@@ -46,6 +49,25 @@ class Deck {
    */
   dump() {
     return JSON.parse(JSON.stringify(this));
+  }
+
+  /*
+   * reset the Test
+   */
+  resetTest() {
+    this.TestRight = 0;
+    this.TestRight = 0;
+    this._testIndex = 0;
+    //this.cards = _.shuffle(this.cards);
+  }
+
+  /*
+   * pick new Card for test mode
+   * @return -> Next Card of false if no Cards left
+   */
+  pickTest() {
+    if (this._testIndex == this.cards.length) return false;
+    return this.cards[this._testIndex++];
   }
 
   /* reset the deck
