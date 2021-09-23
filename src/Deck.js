@@ -23,6 +23,16 @@ class Deck {
    * pick a card from deck
    * @return -> Card
    */
+  update(id,choice) {
+    //find card with id
+    let card = this.cards.find(({ _id }) => _id == id);
+    card.update(choice);
+  }
+
+  /*
+   * pick a card from deck
+   * @return -> Card
+   */
   pick() {
     //find all the buckets for this day and concat them into a single list
     let dayWords = this.cards.filter(

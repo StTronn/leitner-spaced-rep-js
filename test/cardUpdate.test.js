@@ -1,6 +1,7 @@
 /* Test for Card.update */
 
-const { Card, Deck, createCards } = require("../src/Card");
+const Deck = require('../src/Deck');
+const { Card, createCards } = require("../src/Card");
 
 const dummyCards = [
   { front: "a", back: "alphabet", reviewCount: 0, status: "new", bucket: 0 },
@@ -95,4 +96,15 @@ test("wrong word right is reviewed", () => {
   expect(card.bucket).toBe(0);
   expect(card.status).toBe("reviewing");
   expect(card.reviewCount).toBe(0);
+});
+
+
+test("new word right is mastered Deck", () => {
+  const deck = new Deck({ id: 1, cards: createCards(dummyCards) });
+  const card = deck.pick();
+  expect(card.bucket).toBe(0);
+  expect(card.status).toBe(card.statEn.NEW);
+  deck.update(card._id,1)
+  expect(card.bucket).toBe(2);
+  expect(card.status).toBe(card.statEn.MASTERED);
 });

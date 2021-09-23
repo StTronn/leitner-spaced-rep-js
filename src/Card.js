@@ -8,6 +8,7 @@ const statEn = {
   REVIEW: "reviewing",
   WRONG: "wrong",
 };
+const { uniqueId } = require("lodash");
 const Deck = require("./Deck");
 
 class Card {
@@ -29,6 +30,7 @@ class Card {
   constructor(obj) {
     Object.keys(obj).map((e) => {
       this[e] = obj[e];
+      this._id = uniqueId()
     });
   }
 
