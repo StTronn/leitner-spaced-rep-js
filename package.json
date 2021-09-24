@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "jest",
-    "trans": "babel src/ -d lib"
+    "trans": "babel src/ -d lib",
+    "prepublishOnly": "npm run trans"
   },
   "pre-commit": "trans",
   "devDependencies": {
