@@ -30,7 +30,7 @@ class Card {
   constructor(obj) {
     Object.keys(obj).map((e) => {
       this[e] = obj[e];
-      this._id = uniqueId()
+      // this._id = uniqueId()
     });
   }
 
